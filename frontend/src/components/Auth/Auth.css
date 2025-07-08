@@ -1,0 +1,263 @@
+/* frontend/src/components/Auth/Auth.css */
+
+.auth-page {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+  
+  .auth-container {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 100%;
+    max-width: 450px;
+    animation: slideUp 0.5s ease-out;
+  }
+  
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .auth-header {
+    background: linear-gradient(135deg, #1890ff 0%, #722ed1 100%);
+    color: white;
+    text-align: center;
+    padding: 40px 30px;
+  }
+  
+  .system-title {
+    font-size: 28px;
+    font-weight: 700;
+    margin: 0 0 8px 0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .system-subtitle {
+    font-size: 16px;
+    margin: 0;
+    opacity: 0.9;
+    font-weight: 300;
+  }
+  
+  .auth-form {
+    padding: 40px 30px;
+  }
+  
+  .auth-title {
+    font-size: 24px;
+    font-weight: 600;
+    text-align: center;
+    margin: 0 0 30px 0;
+    color: #262626;
+  }
+  
+  .form {
+    margin-bottom: 24px;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-label {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    color: #595959;
+    margin-bottom: 8px;
+  }
+  
+  .form-input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid #e8e8e8;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    background: #fafafa;
+    box-sizing: border-box;
+  }
+  
+  .form-input:focus {
+    outline: none;
+    border-color: #1890ff;
+    background: white;
+    box-shadow: 0 0 0 4px rgba(24, 144, 255, 0.1);
+  }
+  
+  .form-input::placeholder {
+    color: #bfbfbf;
+  }
+  
+  .form-button {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #1890ff 0%, #722ed1 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 8px;
+  }
+  
+  .form-button:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(24, 144, 255, 0.3);
+  }
+  
+  .form-button:active {
+    transform: translateY(0);
+  }
+  
+  .form-button.loading {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+  
+  .form-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+  }
+  
+  .message {
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin: 16px 0;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+  }
+  
+  .message.success {
+    background: #f6ffed;
+    color: #389e0d;
+    border: 1px solid #b7eb8f;
+  }
+  
+  .message.error {
+    background: #fff2f0;
+    color: #cf1322;
+    border: 1px solid #ffb3b3;
+  }
+  
+  .quick-login {
+    margin: 24px 0;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 12px;
+    border: 1px solid #e9ecef;
+  }
+  
+  .quick-login-title {
+    font-size: 14px;
+    color: #6c757d;
+    margin: 0 0 12px 0;
+    text-align: center;
+    font-weight: 500;
+  }
+  
+  .quick-login-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  
+  .quick-button {
+    padding: 10px 16px;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: white;
+  }
+  
+  .quick-button.teacher {
+    color: #1890ff;
+    border-color: #1890ff;
+  }
+  
+  .quick-button.teacher:hover {
+    background: #1890ff;
+    color: white;
+    transform: translateY(-1px);
+  }
+  
+  .quick-button.student {
+    color: #52c41a;
+    border-color: #52c41a;
+  }
+  
+  .quick-button.student:hover {
+    background: #52c41a;
+    color: white;
+    transform: translateY(-1px);
+  }
+  
+  .auth-switch {
+    text-align: center;
+    padding-top: 24px;
+    border-top: 1px solid #e8e8e8;
+    color: #8c8c8c;
+    font-size: 14px;
+  }
+  
+  .switch-button {
+    background: none;
+    border: none;
+    color: #1890ff;
+    font-weight: 500;
+    cursor: pointer;
+    margin-left: 8px;
+    text-decoration: underline;
+    font-size: 14px;
+  }
+  
+  .switch-button:hover {
+    color: #722ed1;
+  }
+  
+  /* 响应式设计 */
+  @media (max-width: 480px) {
+    .auth-page {
+      padding: 10px;
+    }
+    
+    .auth-container {
+      max-width: 100%;
+    }
+    
+    .auth-header {
+      padding: 30px 20px;
+    }
+    
+    .system-title {
+      font-size: 24px;
+    }
+    
+    .auth-form {
+      padding: 30px 20px;
+    }
+    
+    .quick-login-buttons {
+      grid-template-columns: 1fr;
+    }
+  }

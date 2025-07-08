@@ -1,0 +1,559 @@
+/* frontend/src/components/Analytics/Analytics.css */
+
+.analytics-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: #f5f5f5;
+    min-height: 100vh;
+    padding: 20px;
+  }
+  
+  /* 头部样式 */
+  .analytics-header {
+    display: flex;
+    justify-content: space-between;/*控制子元素在主轴（水平方向）的分布
+    space-between：第一个元素靠左，最后一个靠右，*/
+    align-items: flex-end;
+    margin-bottom: 32px;
+    padding: 24px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    /* justify-content: center;  */
+  }
+  
+  .analytics-title-section h1 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #262626;
+    margin: 0 0 8px 0;
+    
+  }
+  
+  .analytics-title-section p {
+    color: #8c8c8c;
+    margin: 0;
+    font-size: 16px;
+  }
+  
+  .analytics-controls {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  
+  .time-range-selector {
+    display: flex;
+    background: #f0f0f0;
+    border-radius: 8px;
+    padding: 4px;
+  }
+  
+  .time-btn {
+    padding: 8px 16px;
+    border: none;
+    background: transparent;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #595959;
+  }
+  
+  .time-btn.active {
+    background: #1890ff;
+    color: white;
+  }
+  
+  .time-btn:hover:not(.active) {
+    background: #d9d9d9;
+  }
+  
+  .export-btn {
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #52c41a 0%, #389e0d 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .export-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(82, 196, 26, 0.3);
+  }
+  
+  /* 概览统计 */
+  .analytics-overview {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    margin-bottom: 32px;
+  }
+  
+  /* 分析内容区域 */
+  .analytics-content {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  
+  .analytics-section {
+    background: white;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .analytics-section h3 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #262626;
+    margin: 0 0 20px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  /* 学生表现分布 */
+  .performance-distribution {
+    padding: 20px 0;
+  }
+  
+  .distribution-chart {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .distribution-bar {
+    height: 40px;
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .distribution-bar:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  }
+  
+  .bar-segment {
+    height: 100%;
+    transition: all 0.4s ease;
+    position: relative;
+  }
+  
+  .bar-segment.excellent {
+    background: linear-gradient(90deg, #52c41a, #73d13d);
+  }
+  
+  .bar-segment.good {
+    background: linear-gradient(90deg, #1890ff, #40a9ff);
+  }
+  
+  .bar-segment.average {
+    background: linear-gradient(90deg, #faad14, #ffc53d);
+  }
+  
+  .bar-segment.poor {
+    background: linear-gradient(90deg, #ff4d4f, #ff7875);
+  }
+  
+  .distribution-legend {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+  }
+  
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: #595959;
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+  }
+  
+  .legend-item:hover {
+    background: rgba(24, 144, 255, 0.05);
+  }
+  
+  .legend-color {
+    width: 16px;
+    height: 16px;
+    border-radius: 4px;
+  }
+  
+  .legend-color.excellent { background: #52c41a; }
+  .legend-color.good { background: #1890ff; }
+  .legend-color.average { background: #faad14; }
+  .legend-color.poor { background: #ff4d4f; }
+  
+  /* 活动趋势图 */
+  .activity-chart {
+    padding: 20px 0;
+  }
+  
+  .chart-container {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 16px;
+    height: 200px;
+    margin-bottom: 16px;
+    padding: 0 20px;
+  }
+  
+  .activity-bar-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    height: 100%;
+  }
+  
+  .activity-info {
+    margin-bottom: 8px;
+    text-align: center;
+  }
+  
+  .participants-count {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1890ff;
+  }
+  
+  .avg-score {
+    font-size: 12px;
+    color: #8c8c8c;
+  }
+  
+  .activity-bar {
+    width: 40px;
+    background: linear-gradient(180deg, #1890ff 0%, #40a9ff 100%);
+    border-radius: 4px 4px 0 0;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    margin-top: auto;
+  }
+  
+  .activity-bar:hover {
+    background: linear-gradient(180deg, #40a9ff 0%, #69c0ff 100%);
+    transform: scaleY(1.1);
+  }
+  
+  .activity-date {
+    margin-top: 8px;
+    font-size: 12px;
+    color: #8c8c8c;
+    text-align: center;
+  }
+  
+  .chart-labels {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    padding-top: 16px;
+    border-top: 1px solid #e8e8e8;
+  }
+  
+  .chart-label {
+    font-size: 14px;
+    color: #8c8c8c;
+  }
+  
+  /* 热门测验排行 */
+  .top-quizzes {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .quiz-rank-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px;
+    background: #fafafa;
+    border-radius: 12px;
+    border: 1px solid #e8e8e8;
+    transition: all 0.3s ease;
+  }
+  
+  .quiz-rank-item:hover {
+    border-color: #1890ff;
+    box-shadow: 0 2px 8px rgba(24, 144, 255, 0.1);
+  }
+  
+  .rank-number {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #1890ff 0%, #722ed1 100%);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 700;
+  }
+  
+  .quiz-info {
+    flex: 1;
+  }
+  
+  .quiz-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #262626;
+    margin: 0 0 8px 0;
+  }
+  
+  .quiz-stats {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  
+  .quiz-stats span {
+    font-size: 14px;
+    color: #8c8c8c;
+  }
+  
+  .difficulty {
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 500;
+  }
+  
+  .difficulty.easy {
+    background: #f6ffed;
+    color: #52c41a;
+  }
+  
+  .difficulty.medium {
+    background: #fffbe6;
+    color: #faad14;
+  }
+  
+  .difficulty.hard {
+    background: #fff2f0;
+    color: #ff4d4f;
+  }
+  
+  .quiz-actions {
+    display: flex;
+    gap: 8px;
+  }
+  
+  .action-btn2 {
+    width: 150px;             /* 固定宽度 */
+    height: 60px;             /* 固定高度 */
+    font-size: 18px;          /* 字体加大 */
+    background: #f0f0f0;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  
+  .action-btn2:hover {
+    background: #1890ff;
+    color: white;
+  }
+  
+  /* AI 洞察建议 */
+  .ai-insights {
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+    border: 2px solid #91d5ff;
+  }
+  
+  .insights-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  
+  .insight-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 20px;
+    background: white;
+    border-radius: 12px;
+    border: 2px solid;
+    transition: all 0.3s ease;
+  }
+  
+  .insight-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  }
+  
+  .insight-card.positive {
+    border-color: #52c41a;
+    background: linear-gradient(135deg, #f6ffed 0%, #f0f9ff 100%);
+  }
+  
+  .insight-card.warning {
+    border-color: #faad14;
+    background: linear-gradient(135deg, #fffbe6 0%, #fff7e6 100%);
+  }
+  
+  .insight-card.suggestion {
+    border-color: #1890ff;
+    background: linear-gradient(135deg, #e6f7ff 0%, #f0f9ff 100%);
+  }
+  
+  .insight-icon {
+    font-size: 24px;
+    flex-shrink: 0;
+  }
+  
+  .insight-content h4 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #262626;
+    margin: 0 0 8px 0;
+  }
+  
+  .insight-content p {
+    font-size: 14px;
+    color: #595959;
+    margin: 0;
+    line-height: 1.5;
+  }
+  
+  /* 加载状态 */
+  .analytics-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+    color: #8c8c8c;
+  }
+  
+  .loading-spinner {
+    width: 48px;
+    height: 48px;
+    border: 4px solid #f0f0f0;
+    border-top: 4px solid #1890ff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 16px;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  /* 消息提示 */
+  .message {
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .message.info {
+    background: #e6f7ff;
+    color: #1890ff;
+    border: 1px solid #91d5ff;
+  }
+  
+  .message-close {
+    background: none;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 0;
+    margin-left: 12px;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+  }
+  
+  .message-close:hover {
+    opacity: 1;
+  }
+  
+  /* 响应式设计 */
+  @media (max-width: 768px) {
+    .analytics-page {
+      padding: 16px;
+    }
+  
+    .analytics-header {
+      flex-direction: column;
+      gap: 16px;
+      text-align: center;
+    }
+  
+    .analytics-controls {
+      flex-direction: column;
+      width: 100%;
+    }
+  
+    .time-range-selector {
+      width: 100%;
+      justify-content: center;
+    }
+  
+    .analytics-overview {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+  
+    .chart-container {
+      padding: 0 10px;
+    }
+  
+    .quiz-rank-item {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .quiz-stats {
+      justify-content: center;
+    }
+  
+    .insights-container {
+      grid-template-columns: 1fr;
+    }
+  
+    .distribution-legend {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .analytics-overview {
+      grid-template-columns: 1fr;
+    }
+  
+    .chart-container {
+      height: 150px;
+    }
+  
+    .activity-bar {
+      width: 30px;
+    }
+  }
